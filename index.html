@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hanzla Ahmed — Ad Ops & Data Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a18;
+    --ink-muted: #6b6b63;
+    --ink-faint: #b4b2a8;
+    --paper: #f5f3ee;
+    --paper-warm: #ede9e0;
+    --accent: #c45c2a;
+    --accent-light: #f0d4c4;
+    --line: rgba(26,26,24,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.25rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.2rem;
+    letter-spacing: -0.01em;
+  }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none;
+    color: var(--ink-muted);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 80px;
+  }
+  .hero-left {
+    padding: 6rem 4rem 4rem 6rem;
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 1px solid var(--line);
+  }
+  .hero-tag {
+    display: inline-block;
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    padding: 0.35rem 0.85rem;
+    border: 1px solid var(--accent);
+    border-radius: 2px;
+    width: fit-content;
+  }
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-desc {
+    font-size: 1.05rem;
+    color: var(--ink-muted);
+    max-width: 380px;
+    line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn-primary {
+    padding: 0.8rem 2rem;
+    background: var(--ink);
+    color: var(--paper);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: background 0.2s, transform 0.15s;
+    border-radius: 2px;
+  }
+  .btn-primary:hover { background: var(--accent); transform: translateY(-1px); }
+  .btn-secondary {
+    padding: 0.8rem 2rem;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+    border-radius: 2px;
+  }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+
+  .hero-right {
+    padding: 6rem 4rem 4rem 4rem;
+    display: flex; flex-direction: column; justify-content: center;
+    background: var(--paper-warm);
+  }
+  .stat-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  }
+  .stat-box {
+    padding: 2rem;
+    border-bottom: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
+  .stat-box:nth-child(2n) { border-right: none; }
+  .stat-box:nth-last-child(-n+2) { border-bottom: none; }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.8rem;
+    line-height: 1;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* SECTION BASE */
+  section { padding: 6rem 6rem; }
+  .section-header {
+    display: flex; align-items: baseline; gap: 1.5rem;
+    margin-bottom: 3.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-num {
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    letter-spacing: -0.02em;
+  }
+
+  /* EXPERIENCE */
+  #experience { background: #fff; }
+  .exp-item {
+    display: grid; grid-template-columns: 240px 1fr;
+    gap: 2rem;
+    padding: 2.5rem 0;
+    border-bottom: 1px solid var(--line);
+    animation: fadeUp 0.6s ease both;
+  }
+  .exp-item:last-child { border-bottom: none; }
+  .exp-meta {}
+  .exp-period {
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0.5rem;
+  }
+  .exp-company {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--accent);
+    margin-bottom: 0.25rem;
+  }
+  .exp-loc {
+    font-size: 0.8rem;
+    color: var(--ink-muted);
+  }
+  .exp-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+  }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 0.9rem;
+    color: var(--ink-muted);
+    line-height: 1.7;
+    padding: 0.3rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+  .exp-bullets li::before {
+    content: '→';
+    position: absolute; left: 0;
+    color: var(--accent);
+    font-size: 0.8rem;
+    top: 0.35rem;
+  }
+
+  /* SKILLS */
+  #skills { background: var(--paper); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .skill-card {
+    background: var(--paper);
+    padding: 2rem;
+  }
+  .skill-card-icon {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--accent-light);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+  .skill-card-title {
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.02em;
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .skill-tag {
+    padding: 0.25rem 0.7rem;
+    background: var(--paper-warm);
+    border: 1px solid var(--line);
+    font-size: 0.75rem;
+    color: var(--ink-muted);
+    border-radius: 2px;
+    letter-spacing: 0.02em;
+  }
+
+  /* EDUCATION & CERTS */
+  #education { background: var(--paper-warm); }
+  .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .edu-card {
+    background: var(--paper);
+    padding: 2rem;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+  }
+  .edu-type {
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+  }
+  .edu-degree {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  .edu-institution { font-size: 0.85rem; color: var(--ink-muted); }
+  .cert-list { list-style: none; margin-top: 0.75rem; }
+  .cert-list li {
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--ink-muted);
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .cert-list li:last-child { border-bottom: none; }
+  .cert-dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* CONTACT */
+  #contact {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+    padding: 6rem;
+  }
+  #contact .section-title { color: var(--paper); }
+  #contact .section-num { color: var(--ink-faint); }
+  #contact .section-header { border-bottom-color: rgba(255,255,255,0.12); }
+  .contact-lead {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    line-height: 1.15;
+  }
+  .contact-lead em { font-style: italic; color: var(--accent); }
+  .contact-sub {
+    color: var(--ink-faint);
+    margin-bottom: 3rem;
+    font-size: 1rem;
+  }
+  .contact-links {
+    display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  .contact-link {
+    color: var(--paper);
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+    padding-bottom: 2px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .contact-link:hover { color: var(--accent); border-color: var(--accent); }
+  .contact-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 500;
+    border-radius: 2px;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+  .contact-btn:hover { opacity: 0.88; transform: translateY(-2px); }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: var(--ink-faint);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { gap: 1.5rem; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { padding: 5rem 2rem 3rem; border-right: none; }
+    .hero-right { padding: 2rem; }
+    section { padding: 4rem 2rem; }
+    .exp-item { grid-template-columns: 1fr; gap: 1rem; }
+    .edu-grid { grid-template-columns: 1fr; }
+    .contact-lead { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Hanzla Ahmed</div>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-left">
+    <span class="hero-tag">Ad Ops · Data · Programmatic</span>
+    <h1 class="hero-name">Hanzla<br><em>Ahmed</em></h1>
+    <p class="hero-desc">
+      Software engineering graduate turned Ad Ops specialist — combining technical depth with programmatic advertising expertise to drive measurable revenue growth.
+    </p>
+    <div class="hero-cta">
+      <a href="#experience" class="btn-primary">View Experience</a>
+      <a href="mailto:ahmed.hanzla1998@gmail.com" class="btn-secondary">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stat-grid">
+      <div class="stat-box">
+        <div class="stat-num">2+</div>
+        <div class="stat-label">Years in Ad Ops</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">4+</div>
+        <div class="stat-label">Years Professional</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">RTB</div>
+        <div class="stat-label">DSP/SSP Expert</div>
+      </div>
+      <div class="stat-box">
+        <div class="stat-num">BI</div>
+        <div class="stat-label">Power BI · Quicksight</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Experience</h2>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-meta">
+      <div class="exp-period">Jun 2024 — Present</div>
+      <div class="exp-company">Arken Systems</div>
+      <div class="exp-loc">Islamabad, Pakistan</div>
+    </div>
+    <div class="exp-content">
+      <h3 class="exp-title">Ad Ops Specialist</h3>
+      <ul class="exp-bullets">
+        <li>Managed end-to-end programmatic campaign operations including RTB configurations, deal ID setup (PMP/PG), and header bidding integrations.</li>
+        <li>Monitored and optimized KPIs — CTR, bid rate, fill rate, win rate, eCPM, and revenue — to identify performance trends and drive continuous improvement.</li>
+        <li>Built automated dashboards and reports in Power BI and Amazon Quicksight, delivering real-time programmatic insights to stakeholders.</li>
+        <li>Optimized floor price strategies, bid density tuning, and yield management across SSP and DSP platforms, achieving measurable improvements in fill rate and revenue.</li>
+        <li>Conducted A/B testing on ad creatives, targeting parameters, and bidding strategies to maximize campaign ROI and inventory performance.</li>
+        <li>Developed and maintained operational SOPs for campaign setup, reporting workflows, and issue escalation, improving team efficiency and onboarding.</li>
+        <li>Served as primary point of contact for demand partners, ensuring SLA compliance and operational continuity.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item">
+    <div class="exp-meta">
+      <div class="exp-period">Jul 2022 — May 2024</div>
+      <div class="exp-company">Maanz AI</div>
+      <div class="exp-loc">Islamabad, Pakistan</div>
+    </div>
+    <div class="exp-content">
+      <h3 class="exp-title">Planning & Analysis Specialist</h3>
+      <ul class="exp-bullets">
+        <li>Developed and maintained ETL data pipelines to process large datasets for analytical use across self-driving car projects.</li>
+        <li>Analyzed datasets using SQL and Excel, deriving insights to support autonomous vehicle development initiatives.</li>
+        <li>Created interactive Power BI dashboards to visualize key performance metrics, enabling data-driven decision-making.</li>
+        <li>Acted as coordination bridge between technical and non-technical stakeholders, translating data findings into clear operational recommendations.</li>
+        <li>Documented data processes and analytical workflows, creating reference materials that improved team productivity.</li>
+        <li>Assisted in resource planning and workload distribution to ensure balanced capacity and on-time project execution.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Skills</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-icon">📊</div>
+      <div class="skill-card-title">Languages & Analysis</div>
+      <div class="skill-tags">
+        <span class="skill-tag">SQL</span>
+        <span class="skill-tag">Python</span>
+        <span class="skill-tag">Pandas</span>
+        <span class="skill-tag">NumPy</span>
+        <span class="skill-tag">Data Cleaning</span>
+        <span class="skill-tag">Forecasting</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">📈</div>
+      <div class="skill-card-title">Data Visualization</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Power BI</span>
+        <span class="skill-tag">Amazon Quicksight</span>
+        <span class="skill-tag">Matplotlib</span>
+        <span class="skill-tag">Dashboard Design</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">🎯</div>
+      <div class="skill-card-title">Programmatic Advertising</div>
+      <div class="skill-tags">
+        <span class="skill-tag">DSP/SSP Management</span>
+        <span class="skill-tag">RTB</span>
+        <span class="skill-tag">Header Bidding</span>
+        <span class="skill-tag">Ad Serving</span>
+        <span class="skill-tag">Yield Optimization</span>
+        <span class="skill-tag">PMP/PG Deals</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">⚙️</div>
+      <div class="skill-card-title">Operations & Management</div>
+      <div class="skill-tags">
+        <span class="skill-tag">ETL Processes</span>
+        <span class="skill-tag">SOP Development</span>
+        <span class="skill-tag">Workflow Coordination</span>
+        <span class="skill-tag">KPI Tracking</span>
+        <span class="skill-tag">Vendor Management</span>
+        <span class="skill-tag">Stakeholder Reporting</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2 class="section-title">Education & Certifications</h2>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-type">Degree</div>
+      <div class="edu-degree">BS in Software Engineering</div>
+      <div class="edu-institution">COMSATS University Islamabad · Graduated 2022</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-type">Certifications</div>
+      <div class="edu-degree">Professional Credentials</div>
+      <ul class="cert-list">
+        <li><span class="cert-dot"></span>Data Analysis with Pandas — Coursera</li>
+        <li><span class="cert-dot"></span>SQL for Data Analytics — Coursera</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header" style="justify-content:center;">
+    <span class="section-num">04</span>
+    <h2 class="section-title">Contact</h2>
+  </div>
+  <p class="contact-lead">Let's work<br><em>together</em></p>
+  <p class="contact-sub">Open to new opportunities in Ad Ops, Data Analytics, and Programmatic Advertising.</p>
+  <div class="contact-links">
+    <a href="mailto:ahmed.hanzla1998@gmail.com" class="contact-link">ahmed.hanzla1998@gmail.com</a>
+    <a href="tel:+923115570739" class="contact-link">+92 311 5570739</a>
+    <a href="https://linkedin.com/in/hanzla-ahmed-a2859b209" class="contact-link" target="_blank">LinkedIn</a>
+  </div>
+  <a href="mailto:ahmed.hanzla1998@gmail.com" class="contact-btn">Send a Message</a>
+</section>
+
+<footer>
+  © 2026 Hanzla Ahmed · Islamabad, Pakistan
+</footer>
+
+<script>
+  const items = document.querySelectorAll('.exp-item');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        e.target.style.animationDelay = (i * 0.1) + 's';
+        e.target.style.opacity = '1';
+      }
+    });
+  }, { threshold: 0.1 });
+  items.forEach(el => { el.style.opacity = '0'; observer.observe(el); });
+</script>
+
+</body>
+</html>
